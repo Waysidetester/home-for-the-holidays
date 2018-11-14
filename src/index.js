@@ -1,5 +1,9 @@
 import 'bootstrap';
-import $ from 'jquery';
 import './index.scss';
+import navbar from './javascripts/components/navbar/navbar';
 
-$('#test-here').text('i am linked');
+const init = () => {
+  navbar.createNavbar();
+};
+
+init();
