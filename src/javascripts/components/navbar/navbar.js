@@ -7,13 +7,30 @@ const navButtEvents = () => {
   $('.nav-link').on('click', (e) => {
     const targetId = (e.currentTarget.id);
     switch (targetId) {
+      case 'navbar-link-login':
+        $('#auth').show();
+        $('#friends').hide();
+        $('#holidays').hide();
+        break;
+      case 'navbar-link-holidays':
+        $('#auth').hide();
+        $('#friends').hide();
+        $('#holidays').show();
+        break;
+      case 'navbar-link-friends':
+        $('#auth').hide();
+        $('#friends').show();
+        $('#holidays').hide();
+        break;
       case 'navbar-link-logout':
         firebase.auth().signOut()
-          .then((result) => {
-            console.log('logged out', result);
+          .then(() => {
+            $('#auth').show();
+            $('#friends').hide();
+            $('#holidays').hide();
           })
           .catch((error) => {
-            console.error(error);
+            console.error('User is still logged in', error);
           });
         break;
       default:
@@ -33,7 +50,7 @@ const createNavbar = () => {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link google-auth" id="navbar-link-login">Login</a>
+          <a class="nav-link" id="navbar-link-login">Login</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" id="navbar-link-holidays">Holidays</a>
