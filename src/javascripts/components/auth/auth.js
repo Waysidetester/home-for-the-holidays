@@ -5,7 +5,7 @@ import './auth.scss';
 import googleImg from './Google-logo-2015-G-icon.png';
 
 const loginClick = (loginId) => {
-  $(`.${loginId}`).on('click', () => {
+  $(`#${loginId}`).on('click', () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider);
   });
@@ -13,7 +13,7 @@ const loginClick = (loginId) => {
 
 const login = () => {
   const domString = `
-    <button class="btn btn-dark google-auth"><img id="auth-image" src="${googleImg}"/></button>
+    <button class="btn btn-dark" id="google-auth"><img id="auth-image" src="${googleImg}"/></button>
   `;
   $('#auth').html(domString);
   loginClick('google-auth');
