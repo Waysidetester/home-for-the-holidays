@@ -1,5 +1,26 @@
 import $ from 'jquery';
 import './navbar.scss';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+
+const navButtEvents = () => {
+  $('.nav-link').on('click', (e) => {
+    const targetId = (e.currentTarget.id);
+    switch (targetId) {
+      case 'navbar-link-logout':
+        firebase.auth().signOut()
+          .then((result) => {
+            console.log('logged out', result);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+        break;
+      default:
+        console.error(targetId);
+    }
+  });
+};
 
 const createNavbar = () => {
   const domString = `
@@ -12,7 +33,7 @@ const createNavbar = () => {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" id="navbar-link-login">Login</a>
+          <a class="nav-link google-auth" id="navbar-link-login">Login</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" id="navbar-link-holidays">Holidays</a>
@@ -28,6 +49,12 @@ const createNavbar = () => {
   </nav>`;
 
   $('#navbar').html(domString);
+  navButtEvents();
 };
+
+
+// const logout = () => {
+//   firebase.auth().signOut();
+// };
 
 export default { createNavbar };
