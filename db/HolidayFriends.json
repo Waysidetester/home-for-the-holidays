@@ -1,0 +1,4 @@
+{
+  "holidayId": "holiday1",
+  "friendId": ["friend1", "friend2", "friend3"]
+}

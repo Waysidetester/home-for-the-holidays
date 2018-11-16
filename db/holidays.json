@@ -1,0 +1,33 @@
+{
+  "holidays":
+  [
+    {
+      "name": "Thanksgiving",
+      "Date": "11/22/2018",
+      "imageUrl": "http://www.todayifoundout.com/wp-content/uploads/2017/11/thanksgiving-turkey-640x427.png",
+      "location": "NSS",
+      "startTime": "11am",
+      "uid": "12345",
+      "holidayId": "holiday1"
+    },
+    {
+      "name": "Thanksgiving",
+      "Date": "11/22/2018",
+      "imageUrl": "http://www.todayifoundout.com/wp-content/uploads/2017/11/thanksgiving-turkey-640x427.png",
+      "location": "NSS",
+      "startTime": "11am",
+      "uid": "12345",
+      "holidayId": "holiday2"
+    },
+    {
+      "name": "Thanksgiving",
+      "Date": "11/22/2018",
+      "imageUrl": "http://www.todayifoundout.com/wp-content/uploads/2017/11/thanksgiving-turkey-640x427.png",
+      "location": "NSS",
+      "startTime": "11am",
+      "uid": "12345",
+      "holidayId": "holiday3"
+
+    }
+  ]
+}
