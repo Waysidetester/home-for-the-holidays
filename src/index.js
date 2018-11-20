@@ -9,8 +9,8 @@ import friendsPage from './javascripts/components/friendsPage/friendsPage';
 
 const init = () => {
   firebase.initializeApp(apiKeys.firebaseKeys);
-  navbar.createNavbar();
   authHelpers.checkLoginStatus(friendsPage.friendsPage);
+  navbar.createNavbar();
   auth.login();
 };
 
