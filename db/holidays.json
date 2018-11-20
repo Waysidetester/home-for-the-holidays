@@ -1,6 +1,5 @@
 {
-  "holidays":
-  [
+  "holiday1":
     {
       "name": "Thanksgiving",
       "Date": "11/22/2018",
@@ -10,6 +9,7 @@
       "uid": "12345",
       "holidayId": "holiday1"
     },
+  "holiday2":
     {
       "name": "Thanksgiving",
       "Date": "11/22/2018",
@@ -19,6 +19,7 @@
       "uid": "12345",
       "holidayId": "holiday2"
     },
+  "holiday3":
     {
       "name": "Thanksgiving",
       "Date": "11/22/2018",
@@ -29,5 +30,4 @@
       "holidayId": "holiday3"
 
     }
-  ]
 }
