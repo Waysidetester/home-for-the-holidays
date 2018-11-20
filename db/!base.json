@@ -1,5 +1,8 @@
 {
-  "friendsd": {},
-  "holidays": {},
-  "holidayFriends": {}
+  "home-for-the-holidays": 
+  {
+    "friends": {},
+    "holidays": {},
+    "holidayFriends": {}
+  }
 }
