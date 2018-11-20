@@ -4,6 +4,34 @@ import apiKeys from '../../../../db/apiKeys.json';
 import authHelpers from '../../../helpers/authHelpers';
 import './friendsPage.scss';
 
+const printFriendObj = (friend) => {
+  const newString = `<div id="selected-friend">
+    <div>
+      <h1>${friend.name}</h1>
+      <h3>${friend.relationship}</h3>
+      <p>${friend.address}</p>
+      <p>${friend.email}</p>
+      <p>${friend.phoneNumber}</p>
+    </div>
+    <button class="btn btn-danger delete-btn">X</button>
+  </div>
+  `;
+  $('#single-container').html(newString);
+};
+
+const getSelectedFriend = (e) => {
+  const friendId = e.target.dataset.dropdownId;
+  axios.get(`${apiKeys.firebaseKeys.databaseURL}/friends/${friendId}.json`)
+    .then((result) => {
+      const friendObject = result.data;
+      friendObject.id = friendId;
+      printFriendObj(friendObject);
+    })
+    .catch((err) => {
+      console.error('Getting single friend failed', err);
+    });
+};
+
 const buildDropDown = (arrOfFriends) => {
   let dropDown = `<div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -11,7 +39,7 @@ const buildDropDown = (arrOfFriends) => {
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">`;
   arrOfFriends.forEach((friend) => {
-    dropDown += `<div class="dropdown-item">${friend.name}</div>`;
+    dropDown += `<div class="dropdown-item" data-dropdown-id=${friend.id}>${friend.name}</div>`;
   });
   dropDown += `</div>
     </div>`;
@@ -31,11 +59,19 @@ const friendsPage = () => {
         });
       }
       buildDropDown(friendsArray);
-      console.log(friendsArray);
     })
     .catch((err) => {
       console.error('Error getting friends', err);
     });
 };
 
-export default { friendsPage };
+const bindEvents = () => {
+  $('body').on('click', '.dropdown-item', getSelectedFriend);
+};
+
+const initFriends = () => {
+  friendsPage();
+  bindEvents();
+};
+
+export default { initFriends };
