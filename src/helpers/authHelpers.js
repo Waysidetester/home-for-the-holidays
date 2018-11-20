@@ -2,7 +2,7 @@ import $ from 'jquery';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
-const checkLoginStatus = () => {
+const checkLoginStatus = (initFriendsPage) => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       $('#friends').hide();
@@ -12,6 +12,7 @@ const checkLoginStatus = () => {
       $('#navbar-link-holidays').show();
       $('#navbar-link-friends').show();
       $('#navbar-link-logout').show();
+      initFriendsPage();
     } else {
       $('#friends').hide();
       $('#holidays').hide();

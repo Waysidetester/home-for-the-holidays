@@ -1,7 +1,6 @@
 
 {
-  "friends": 
-  [
+  "friend1": 
     {
       "name": "Callan M.",
       "address": "1 Main Street, Nashville, TN 37209",
@@ -12,6 +11,7 @@
       "uid": "1234",
       "friendId": "friend1"
     },
+  "friend2":
     {
       "name": "Callan M.",
       "address": "1 Main Street, Nashville, TN 37209",
@@ -22,6 +22,7 @@
       "uid": "1234",
       "friendId": "friend2"
     },
+  "friend3":
     {
       "name": "Callan M.",
       "address": "1 Main Street, Nashville, TN 37209",
@@ -32,6 +33,7 @@
       "uid": "1234",
       "friendId": "friend3"
     },
+  "friend4":
     {
       "name": "Callan M.",
       "address": "1 Main Street, Nashville, TN 37209",
@@ -42,6 +44,7 @@
       "uid": "1234",
       "friendId": "friend4"
     },
+  "friend5":
     {
       "name": "Callan M.",
       "address": "1 Main Street, Nashville, TN 37209",
@@ -52,6 +55,7 @@
       "uid": "1234",
       "friendId": "friend5"
     },
+  "friend6":
     {
       "name": "Callan M.",
       "address": "1 Main Street, Nashville, TN 37209",
@@ -59,8 +63,7 @@
       "email": "callan@yomamma.com",
       "relationship": "sister from anotha mother",
       "isAvoiding": true,
-      "uid": "1234",
+      "uid": "4321",
       "friendId": "friend6"
     }
-  ]
-}
+  }

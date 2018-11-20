@@ -5,11 +5,12 @@ import './index.scss';
 import navbar from './javascripts/components/navbar/navbar';
 import auth from './javascripts/components/auth/auth';
 import authHelpers from './helpers/authHelpers';
+import friendsPage from './javascripts/components/friendsPage/friendsPage';
 
 const init = () => {
   firebase.initializeApp(apiKeys.firebaseKeys);
   navbar.createNavbar();
-  authHelpers.checkLoginStatus();
+  authHelpers.checkLoginStatus(friendsPage.friendsPage);
   auth.login();
 };
 
