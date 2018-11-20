@@ -25,4 +25,6 @@ const checkLoginStatus = (initFriendsPage) => {
   });
 };
 
-export default { checkLoginStatus };
+const getCurrentUID = () => firebase.auth().currentUser.uid;
+
+export default { checkLoginStatus, getCurrentUID };

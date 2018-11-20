@@ -1,8 +1,11 @@
 import axios from 'axios';
 import apiKeys from '../../../../db/apiKeys.json';
+import authHelpers from '../../../helpers/authHelpers';
+
 
 const friendsPage = () => {
-  axios.get(`${apiKeys.firebaseKeys.databaseURL}/friends.json`)
+  const uId = authHelpers.getCurrentUID();
+  axios.get(`${apiKeys.firebaseKeys.databaseURL}/friends.json?orderBy="uid"&equalTo="${uId}"`)
     .then((friends) => {
       const friendsObject = friends.data;
       const friendsArray = [];
