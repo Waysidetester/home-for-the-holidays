@@ -35,9 +35,12 @@ const deleteFriend = idToDelete => axios.delete(`${apiKeys.firebaseKeys.database
 
 const addNewFriend = friendObject => axios.post(`${apiKeys.firebaseKeys.databaseURL}/friends.json`, JSON.stringify(friendObject));
 
+const updateExistingFriend = (updatedFriend, friendId) => axios.put(`${apiKeys.firebaseKeys.databaseURL}/friends/${friendId}.json`, JSON.stringify(updatedFriend));
+
 export default {
   getSingleFriend,
   getAllFriends,
   deleteFriend,
   addNewFriend,
+  updateExistingFriend,
 };
