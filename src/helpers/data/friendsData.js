@@ -31,14 +31,13 @@ const getSingleFriend = friendId => new Promise((resolve, reject) => {
     });
 });
 
-const deleteFriend = idToDelete => new Promise((resolve, reject) => {
-  axios.delete(`${apiKeys.firebaseKeys.databaseURL}/friends/${idToDelete}.json`)
-    .then((deleted) => {
-      resolve(deleted);
-    })
-    .catch((err) => {
-      reject(err);
-    });
-});
+const deleteFriend = idToDelete => axios.delete(`${apiKeys.firebaseKeys.databaseURL}/friends/${idToDelete}.json`);
 
-export default { getSingleFriend, getAllFriends, deleteFriend };
+const addNewFriend = friendObject => axios.post(`${apiKeys.firebaseKeys.databaseURL}/friends.json`, JSON.stringify(friendObject));
+
+export default {
+  getSingleFriend,
+  getAllFriends,
+  deleteFriend,
+  addNewFriend,
+};

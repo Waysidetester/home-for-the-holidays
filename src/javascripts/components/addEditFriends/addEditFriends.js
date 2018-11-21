@@ -1,6 +1,13 @@
 // import axios from 'axios';
 import $ from 'jquery';
 import authHelpers from '../../../helpers/authHelpers';
+import friendsData from '../../../helpers/data/friendsData';
+import friendsPage from '../friendsPage/friendsPage';
+
+const friendName = () => $('#form-friend-name').val();
+const friendAddress = () => $('#form-friend-address').val();
+const friendPhone = () => $('#form-friend-phone').val();
+const friendEmail = () => $('#form-friend-email').val();
 
 const formBuilder = () => {
   const form = `
@@ -27,24 +34,51 @@ const formBuilder = () => {
       </div>
       <div class="form-group form-check">
         <input type="checkbox" class="form-check-input" id="avoiding">
-        <label class="form-check-label" for="avoiding">Avoiding</label>
+        <label class="form-check-label" for="avoiding">Avoiding?</label>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
     </div>
   `;
   return form;
 };
 
+const buildAddFriend = () => {
+  let domstring = '<h2>Add new Friend</h2>';
+  domstring += formBuilder();
+  domstring += '<button type="submit" class="btn btn-primary" id="add-friend">Add Friend</button>';
+  $('#friends').hide();
+  $('#add-edit-friend').html(domstring).show();
+};
+
 const getFriendFormInput = () => {
   const newFriend = {
-    name: $('#form-friend-name').val(),
-    address: $('#form-friend-address').val(),
-    email: $('#form-friend-email').val(),
-    phoneNumber: $('#form-friend-phone').val(),
+    name: friendName(),
+    address: friendAddress(),
+    email: friendEmail(),
+    phoneNumber: friendPhone(),
     isAvoiding: false,
     uid: authHelpers.getCurrentUID(),
   };
-  console.log(newFriend);
+  return newFriend;
 };
 
-export default { formBuilder, getFriendFormInput };
+const addNewFriend = () => {
+  const newFriend = getFriendFormInput();
+  friendsData.addNewFriend(newFriend)
+    .then((result) => {
+      $('#add-edit-friend').html('').hide();
+      friendsPage.initFriends();
+      $('#friends').show();
+      console.log(result);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
+
+// const updateExistingFriend = () => {
+
+// }
+
+$('body').on('click', '#add-friend', addNewFriend);
+
+export default { buildAddFriend, addNewFriend };
