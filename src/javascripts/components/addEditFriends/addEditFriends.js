@@ -1,5 +1,6 @@
-import axios from 'axios';
+// import axios from 'axios';
 import $ from 'jquery';
+import authHelpers from '../../../helpers/authHelpers';
 
 const formBuilder = () => {
   const form = `
@@ -34,4 +35,16 @@ const formBuilder = () => {
   return form;
 };
 
-export default { formBuilder };
+const getFriendFormInput = () => {
+  const newFriend = {
+    name: $('#form-friend-name').val(),
+    address: $('#form-friend-address').val(),
+    email: $('#form-friend-email').val(),
+    phoneNumber: $('#form-friend-phone').val(),
+    isAvoiding: false,
+    uid: authHelpers.getCurrentUID(),
+  };
+  console.log(newFriend);
+};
+
+export default { formBuilder, getFriendFormInput };
