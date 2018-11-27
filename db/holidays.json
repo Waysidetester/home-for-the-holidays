@@ -6,22 +6,22 @@
       "imageUrl": "http://www.todayifoundout.com/wp-content/uploads/2017/11/thanksgiving-turkey-640x427.png",
       "location": "NSS",
       "startTime": "11am",
-      "uid": "12345",
+      "uid": "tlAco4XZtLVXJRINQWNvzSvMWDv1",
       "holidayId": "holiday1"
     },
   "holiday2":
     {
-      "name": "Thanksgiving",
+      "name": "Christmas",
       "Date": "11/22/2018",
       "imageUrl": "http://www.todayifoundout.com/wp-content/uploads/2017/11/thanksgiving-turkey-640x427.png",
       "location": "NSS",
       "startTime": "11am",
-      "uid": "12345",
+      "uid": "tlAco4XZtLVXJRINQWNvzSvMWDv1",
       "holidayId": "holiday2"
     },
   "holiday3":
     {
-      "name": "Thanksgiving",
+      "name": "New Years",
       "Date": "11/22/2018",
       "imageUrl": "http://www.todayifoundout.com/wp-content/uploads/2017/11/thanksgiving-turkey-640x427.png",
       "location": "NSS",
