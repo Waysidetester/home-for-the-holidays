@@ -32,7 +32,7 @@ const printFriendObj = (friend, holidays) => {
 
 const getSelectedFriend = (e) => {
   const friendId = e.target.dataset.dropdownId;
-  const uid = authHelpers.getCurrentUID()
+  const uid = authHelpers.getCurrentUID();
   friendsData.getSingleFriend(friendId)
     .then((singleFriend) => {
       holidayFriendsData.getHolidayIdsForFriend(friendId)
