@@ -13,6 +13,7 @@ const printFriendObj = (friend) => {
       <p>${friend.phoneNumber}</p>
     </div>
     <button class="btn btn-danger delete-btn" data-delete-id=${friend.id}>X</button>
+    <button class="btn btn-primary edit-btn" data-edit-id=${friend.id}>Edit</button>
   </div>
   `;
   $('#single-container').html(newString);
@@ -80,4 +81,4 @@ const initFriends = () => {
   bindEvents();
 };
 
-export default { initFriends };
+export default { initFriends, getSelectedFriend };
