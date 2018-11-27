@@ -6,7 +6,14 @@ const baseUrl = apiKeys.firebaseKeys.databaseURL;
 const getHolidayIdsForFriend = friendId => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/holidayFriends.json?orderBy="friendId"&equalTo="${friendId}"`)
     .then((result) => {
-      resolve(result);
+      const holidayFriendsObject = result.data;
+      const holidayIds = [];
+      if (holidayFriendsObject !== null) {
+        Object.keys(holidayFriendsObject).forEach((hFId) => {
+          holidayIds.push(holidayFriendsObject[hFId].holidayId);
+        });
+      }
+      resolve(holidayIds);
     })
     .catch((error) => {
       reject(error);

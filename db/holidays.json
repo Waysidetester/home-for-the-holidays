@@ -6,8 +6,7 @@
       "imageUrl": "http://www.todayifoundout.com/wp-content/uploads/2017/11/thanksgiving-turkey-640x427.png",
       "location": "NSS",
       "startTime": "11am",
-      "uid": "tlAco4XZtLVXJRINQWNvzSvMWDv1",
-      "holidayId": "holiday1"
+      "uid": "tlAco4XZtLVXJRINQWNvzSvMWDv1"
     },
   "holiday2":
     {
@@ -16,8 +15,7 @@
       "imageUrl": "http://www.todayifoundout.com/wp-content/uploads/2017/11/thanksgiving-turkey-640x427.png",
       "location": "NSS",
       "startTime": "11am",
-      "uid": "tlAco4XZtLVXJRINQWNvzSvMWDv1",
-      "holidayId": "holiday2"
+      "uid": "tlAco4XZtLVXJRINQWNvzSvMWDv1"
     },
   "holiday3":
     {
@@ -26,8 +24,6 @@
       "imageUrl": "http://www.todayifoundout.com/wp-content/uploads/2017/11/thanksgiving-turkey-640x427.png",
       "location": "NSS",
       "startTime": "11am",
-      "uid": "12345",
-      "holidayId": "holiday3"
-
+      "uid": "12345"
     }
 }

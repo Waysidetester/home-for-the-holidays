@@ -8,7 +8,7 @@ import holidaysData from '../../../helpers/data/holidaysData';
 const holidayStringBuilder = (holidays) => {
   let holidayString = '<h3>Holidays:</h3>';
   holidays.forEach((holiday) => {
-    holidayString += `<h5>${holiday.name}</h5>`;
+    holidayString += `<h5>${holiday.name} ${holiday.Date}</h5>`;
   });
   return holidayString;
 };
