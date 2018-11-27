@@ -2,8 +2,18 @@ import $ from 'jquery';
 import authHelpers from '../../../helpers/authHelpers';
 import './friendsPage.scss';
 import friendsData from '../../../helpers/data/friendsData';
+import holidayFriendsData from '../../../helpers/data/holidayFriendsData';
+import holidaysData from '../../../helpers/data/holidaysData';
 
-const printFriendObj = (friend) => {
+const holidayStringBuilder = (holidays) => {
+  let holidayString = '<h3>Holidays:</h3>';
+  holidays.forEach((holiday) => {
+    holidayString += `<h5>${holiday.name} ${holiday.Date}</h5>`;
+  });
+  return holidayString;
+};
+
+const printFriendObj = (friend, holidays) => {
   const newString = `<div id="selected-friend">
     <div>
       <h1>${friend.name}</h1>
@@ -14,6 +24,7 @@ const printFriendObj = (friend) => {
     </div>
     <button class="btn btn-danger delete-btn" data-delete-id=${friend.id}>X</button>
     <button class="btn btn-primary edit-btn" data-edit-id=${friend.id}>Edit</button>
+    <div class="holiday-container">${holidayStringBuilder(holidays)}</div>
   </div>
   `;
   $('#single-container').html(newString);
@@ -21,9 +32,19 @@ const printFriendObj = (friend) => {
 
 const getSelectedFriend = (e) => {
   const friendId = e.target.dataset.dropdownId;
+  const uid = authHelpers.getCurrentUID();
   friendsData.getSingleFriend(friendId)
     .then((singleFriend) => {
-      printFriendObj(singleFriend);
+      holidayFriendsData.getHolidayIdsForFriend(friendId)
+        .then((holidayIds) => {
+          holidaysData.getHolidaysByArrayOfIds(uid, holidayIds)
+            .then((holidays) => {
+              printFriendObj(singleFriend, holidays);
+            });
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     })
     .catch((err) => {
       console.error('Getting single friend failed', err);
